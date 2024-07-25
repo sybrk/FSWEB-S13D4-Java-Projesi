@@ -21,13 +21,17 @@ public class Point {
     }
 
     public double distance(int _x, int _y) {
-        return Math.sqrt(((_x - x) * (_x - x) + (_y - y) * (_y - y)));
+        int xDiff = _x - x;
+        int yDiff = _y - y;
+        double xPow = Math.pow(xDiff, 2);
+        double yPow = Math.pow(yDiff, 2);
+        return Math.sqrt(xPow + yPow);
     }
     public double distance() {
         return distance(0, 0);
     }
 
     public double distance(Point p) {
-        return distance(p.x, p.y);
+        return distance(p.getX(), p.getY());
     }
 }

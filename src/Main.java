@@ -3,7 +3,8 @@ import com.school.Class;
 
 public class Main {
     public static void main(String[] args) {
-        /*System.out.println("Hello world!");
+        /*
+        System.out.println("Hello world!");
 
         Point first = new Point(6,5);
         Point second = new Point(3, 1);
@@ -16,9 +17,9 @@ public class Main {
 
         Point point = new Point(0,0);
 
-        System.out.println("distance()= " + point.distance());*/
+        System.out.println("distance()= " + point.distance());
 
-        /*Player sinan = new Player("Sinan", 150);
+        Player sinan = new Player("Sinan", 150, Weapon.PARABELLUM);
 
         System.out.println("Sinan kalan sağlık " + sinan.healthRemaining());
         sinan.loseHealth(50);
@@ -27,7 +28,9 @@ public class Main {
         System.out.println("Sinan sağlık artır " + sinan.healthRemaining());
         sinan.loseHealth(99);
         sinan.restoreHealth(150);
-        System.out.println("Sinan kalan sağlık " + sinan.healthRemaining());*/
+        System.out.println("Sinan kalan sağlık " + sinan.healthRemaining());
+        */
+
         // create school
         School javaSchool = new School("Java School");
         System.out.println("Yeni Okul " + javaSchool.getSchoolName() + " oluşturuldu.");
@@ -41,6 +44,8 @@ public class Main {
         Teacher javaTeacher = new Teacher();
         javaTeacher.name = "Tunç Kıral";
         javaTeacher.id = javaSchool.giveNewId();
+        javaTeacher.getAddress();
+        javaTeacher.address = "awdawkdhawıudhawıud";
         javaSchool.addTeacher(javaTeacher);
         // assign teacher to the class
         javaStarter.teacher = javaTeacher;
@@ -50,6 +55,7 @@ public class Main {
         Student javaStudent1 = new Student();
         javaStudent1.name = "Sinan";
         javaStudent1.id = javaSchool.giveNewId();
+        javaStudent1.getAddress();
         javaSchool.addStudent(javaStudent1);
         javaStarter.addStudents(javaStudent1);
 
@@ -65,5 +71,7 @@ public class Main {
         Student student2 = new Student();
         student2.id = javaSchool.giveNewId();
         System.out.println("Diğer öğrencinin id'si " + student2.id);
+
+        Member abc = new Member(MemberTypes.Student);
     }
 }

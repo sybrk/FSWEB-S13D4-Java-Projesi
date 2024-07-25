@@ -1,12 +1,16 @@
+enum Weapon {
+    PARABELLUM,
+    TUFEK
+}
+
 public class Player {
 
     private String name;
     private int healthPercentage;
+    private Weapon weapon;
 
-    enum Weapon {
-        PARABELLUM
-    }
-    public Player(String _name, int _healthPercentage) {
+    public Player(String _name, int _healthPercentage, Weapon weaponEnum) {
+        weapon = weaponEnum;
         if (_healthPercentage > 100) {
             healthPercentage = 100;
         } else if (_healthPercentage < 0) {

@@ -27,9 +27,8 @@ public class School {
     }
 
     public int giveNewId() {
-        int newId = idCounter;
         idCounter++;
-        return newId;
+        return idCounter;
     }
 
     public void addStudent(Student _student) {
