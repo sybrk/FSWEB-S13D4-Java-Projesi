@@ -3,16 +3,30 @@ package com.school;
 import java.util.Date;
 
 public class Member {
-    public String name;
-    public Date birtDate;
-    public String address;
-    public int id;
+    private String name;
+    private Date birtDate;
+    private String address;
+    private int id;
+    private static int nextId = 1;
     private MemberTypes role;
 
-    public Member(MemberTypes _role) {
-        role = _role;
+    public Member(String _name, Date _birtdate, String _address) {
+        id = nextId++;
+        name = _name;
+        birtDate = _birtdate;
+        address = _address;
     }
 
+
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setRole(MemberTypes _role) {
+        role = _role;
+    }
     public String getAddress(){
         return address;
     }
@@ -21,6 +35,4 @@ public class Member {
     public String getAddress(String city){
         return address +" "+ city;
     }
-
-
 }

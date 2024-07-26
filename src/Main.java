@@ -1,5 +1,6 @@
 import com.school.*;
-import com.school.Class;
+
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Main {
         sinan.restoreHealth(150);
         System.out.println("Sinan kalan sağlık " + sinan.healthRemaining());
         */
-
+        /*
         // create school
         School javaSchool = new School("Java School");
         System.out.println("Yeni Okul " + javaSchool.getSchoolName() + " oluşturuldu.");
@@ -43,7 +44,7 @@ public class Main {
         // create a teacher
         Teacher javaTeacher = new Teacher();
         javaTeacher.name = "Tunç Kıral";
-        javaTeacher.id = javaSchool.giveNewId();
+
         javaTeacher.getAddress();
         javaTeacher.address = "awdawkdhawıudhawıud";
         javaSchool.addTeacher(javaTeacher);
@@ -54,7 +55,7 @@ public class Main {
         // create a student;
         Student javaStudent1 = new Student();
         javaStudent1.name = "Sinan";
-        javaStudent1.id = javaSchool.giveNewId();
+
         javaStudent1.getAddress();
         javaSchool.addStudent(javaStudent1);
         javaStarter.addStudents(javaStudent1);
@@ -65,13 +66,59 @@ public class Main {
                 javaStarter.teacher.name + " hocası tarafından " +
                 "verilmeye başlanmıştır.");
 
-        System.out.println("Hocanın id'si " + javaTeacher.id);
-        System.out.println("Öğrencinin id'si " + javaStudent1.id);
+        System.out.println("Hocanın id'si " + javaTeacher.getId());
+        System.out.println("Öğrencinin id'si " + javaStudent1.getId());
         // add new student
         Student student2 = new Student();
-        student2.id = javaSchool.giveNewId();
-        System.out.println("Diğer öğrencinin id'si " + student2.id);
+
+        System.out.println("Diğer öğrencinin id'si " + student2.getId());
 
         Member abc = new Member(MemberTypes.Student);
+         */
+
+        MockData mockData = new MockData();
+        //create school
+        School javaSchool = new School("Java School");
+        // create students with mock data
+        for (int i = 0; i < mockData.mockStudentNames.length; i++) {
+            Student tmpStudent = new Student(mockData.mockStudentNames[i],new Date(2010,05,i + 1),"istanbul / Turkey");
+            javaSchool.addStudent(tmpStudent);
+        }
+
+        // create teachers with mock data
+        for (int i = 0; i < mockData.mockTeacherNames.length; i++) {
+            Teacher tmpTeacher = new Teacher(mockData.mockTeacherNames[i],new Date(1989,07,i + 2),"istanbul / Turkey");
+            javaSchool.addTeacher(tmpTeacher);
+        }
+        // create rooms with mock data
+        for (int i = 0; i < mockData.mockRoomNames.length; i++) {
+            Room tmpRoom = new Room(mockData.mockRoomNames[i]);
+            javaSchool.addRoom(tmpRoom);
+        }
+        // create lessons with mock data
+        for (int i = 0; i < mockData.mockLessonNames.length; i++) {
+            Lesson tmpLesson = new Lesson(mockData.mockLessonNames[i]);
+            javaSchool.addLesson(tmpLesson);
+        }
+        // select a lesson and assign teacher, room and some students to it.
+        Lesson java101 = javaSchool.lessons[0];
+        java101.teacher = javaSchool.teachers[0];
+        java101.room = javaSchool.rooms[0];
+        java101.length = 3;
+        java101.addStudentToLesson(javaSchool.students[0]);
+        java101.addStudentToLesson(javaSchool.students[1]);
+        
+        // now let's print as many info as possible about java101
+        System.out.println(
+                "Yeni dersimizin adı " + java101.name
+                + " hocasının adı " + java101.teacher.getName()
+                + " hocasının id'si " + java101.teacher.getId()
+                + " dersi alan öğrencilerin adları ve ID'leri "
+                + java101.students[0].getName() + " " + java101.students[0].getId() + " "
+                + java101.students[1].getName() + " " + java101.students[1].getId() + " "
+                + "dersin verildiği odanın adı " + java101.room.name
+        );
+
+
     }
 }

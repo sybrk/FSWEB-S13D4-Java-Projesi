@@ -1,14 +1,17 @@
 package com.school;
 
+import java.util.Date;
+
 public class Teacher extends Member{
 
-    public Teacher() {
-        super(MemberTypes.Teacher);
+    public Teacher(String _name, Date _birtdate, String _address) {
+        super(_name, _birtdate, _address);
+        this.setRole(MemberTypes.Teacher);
     }
 
     @Override
     public String getAddress() {
-        return "";
+        return "gizli";
     }
 
     //Overloaded
