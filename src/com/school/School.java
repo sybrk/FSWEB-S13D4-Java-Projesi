@@ -67,4 +67,20 @@ public class School {
         lessons[lessons.length -1] = _lesson;
     }
 
+    public void getStudentDetails() {
+        System.out.println("Below are the students in the school");
+        System.out.printf("| %-10s | %-8s | %4s |%n", "NAME", "ID", "ADDRESS");
+        for (Student student : students) {
+            System.out.printf("| %-10s | %-8s | %4s |%n", student.getName(), student.getId(), student.getAddress());
+        }
+    }
+
+    public void getTeacherDetails() {
+        System.out.println("Below are the teachers in the school");
+        System.out.printf("| %-10s | %-8s | %4s |%n", "NAME", "ID", "ADDRESS");
+        for (Teacher teacher : teachers) {
+            System.out.printf("| %-10s | %-8s | %4s |%n", teacher.getName(), teacher.getId(), teacher.getAddress());
+        }
+    }
+
 }

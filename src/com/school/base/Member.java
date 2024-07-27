@@ -1,8 +1,11 @@
-package com.school;
+package com.school.base;
+
+import com.school.MemberTypes;
+import com.school.interfaces.IMember;
 
 import java.util.Date;
 
-public class Member {
+public class Member implements IMember {
     private String name;
     private Date birtDate;
     private String address;

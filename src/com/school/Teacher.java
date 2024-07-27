@@ -1,8 +1,10 @@
 package com.school;
 
+import com.school.base.Member;
+
 import java.util.Date;
 
-public class Teacher extends Member{
+public class Teacher extends Member {
 
     public Teacher(String _name, Date _birtdate, String _address) {
         super(_name, _birtdate, _address);

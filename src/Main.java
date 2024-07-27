@@ -118,7 +118,8 @@ public class Main {
                 + java101.students[1].getName() + " " + java101.students[1].getId() + " "
                 + "dersin verildiği odanın adı " + java101.room.name
         );
-
+        javaSchool.getStudentDetails();
+        javaSchool.getTeacherDetails();
 
     }
 }
